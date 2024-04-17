@@ -71,7 +71,7 @@ class ChatPDF:
         if not self.chain:
             return "Please, add a PDF document first."
         
-        result = self.chain({"question": query, "chat_history": chat_history})
+        result = self.chain.invoke({"question": query, "chat_history": chat_history})
         chat_history.append((query, result["answer"]))
         return result["answer"]
     
